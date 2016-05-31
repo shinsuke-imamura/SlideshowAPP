@@ -14,10 +14,11 @@ class ResultViewController: UIViewController,UIScrollViewDelegate{
     @IBOutlet weak var imageView : UIImageView!
     @IBOutlet weak var myScrollView : UIScrollView!
     var x : UIImage!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        // ImageButton.setBackgroundImage(x, forState: .Normal)
+       
         
         //ScrollViewの設定
         self.myScrollView.delegate=self
@@ -29,8 +30,11 @@ class ResultViewController: UIViewController,UIScrollViewDelegate{
         self.myScrollView.showsHorizontalScrollIndicator=true
         //縦スクロールバーの表示
         self.myScrollView.showsVerticalScrollIndicator=true
+        //表示時の倍率の設定
+        self.myScrollView.setZoomScale(2.0, animated: true)
         
        imageView.image=x
+        
 
         // Do any additional setup after loading the view.
     }
@@ -40,6 +44,7 @@ class ResultViewController: UIViewController,UIScrollViewDelegate{
         // Dispose of any resources that can be recreated.
     }
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        
         return self.imageView
     }
 
